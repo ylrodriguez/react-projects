@@ -3,6 +3,7 @@ import React from 'react';
 const Menu = ({ menu }) => {
 	return (
 		<div className="section-center">
+
 			{
 				menu.map(item => {
 					const { id, title, category, price, img, desc } = item;
