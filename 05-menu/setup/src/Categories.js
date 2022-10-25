@@ -11,17 +11,12 @@ const Categories = ({ categories, changeCategory }) => {
 
 	return (
 		<div className="btn-container">
-			<button
-				type="button"
-				className={`filter-btn ${selectedCategory == 'all' ? 'selected' : ''}`}
-				onClick={() => onFilter('all')}>
-				All
-			</button>
 			{
-				categories.map(cat => {
+				categories.map((cat, index) => {
 					return <button
+						key={index}
 						type="button"
-						className={`filter-btn ${selectedCategory == cat ? 'selected' : ''}`}
+						className={`filter-btn ${selectedCategory === cat ? 'selected' : ''}`}
 						onClick={() => onFilter(cat)}>
 						{cat}
 					</button>

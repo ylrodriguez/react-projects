@@ -10,15 +10,25 @@ function App() {
 	const [categories, setCategories] = useState([]);
 
 	useEffect(() => {
-		let foundCategories = menu.map(menu => menu.category);
-		let uniqueCategories = foundCategories.filter((cat, index) => foundCategories.indexOf(cat) === index);
+		// let foundCategories = menu.map(menu => menu.category);
+		// let uniqueCategories = foundCategories.filter((cat, index) => foundCategories.indexOf(cat) === index);
+
+		let categoriesSet = new Set(menu.map(menu => menu.category));
+		console.log(categoriesSet);
+		let uniqueCategories = ['all', ...categoriesSet];
+
 		setCategories(uniqueCategories);
 		changeCategory('all');
 	}, [])
 
 
 	const changeCategory = (type) => {
-		let filtered = menu.filter(item => type == 'all' ? true : item.category == type);
+		if (type == 'all') {
+			setFilteredMenu(menu);
+			return;
+		}
+
+		let filtered = menu.filter(item => item.category == type);
 		setFilteredMenu(filtered);
 	}
 

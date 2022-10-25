@@ -5,9 +5,9 @@ const Menu = ({ menu }) => {
 		<div className="section-center">
 
 			{
-				menu.map(item => {
+				menu.map((item, index) => {
 					const { id, title, category, price, img, desc } = item;
-					return <article className="menu-item">
+					return <article key={index} className="menu-item">
 						<img src={img} className="photo" alt="" />
 						<div className="item-info">
 							<header>
